@@ -6,8 +6,8 @@ import TableHead from '@mui/material/TableHead';
 import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
-import withStyles from '@mui/material/withStyles';
 import Paper from '@mui/material/Paper';
+import { withStyles } from '@mui/material';
 
 const styles = theme => ({
   root: {
@@ -19,6 +19,7 @@ const styles = theme => ({
     minWidth: 1080
   }
 })
+
 
 const customers = [
   {
@@ -51,6 +52,7 @@ class App extends Component {
   render() {
     const { classes } = this.props;
     return (
+      
       <Paper className={classes.root}>
         <Table className={classes.table}>
           <TableHead>
@@ -59,12 +61,13 @@ class App extends Component {
               <TableCell>사진</TableCell>     
               <TableCell>이름</TableCell>     
               <TableCell>생년월일</TableCell>     
-              <TableCell>성멸</TableCell>     
+              <TableCell>성별</TableCell>     
               <TableCell>직업</TableCell>                   
             </TableRow>
           </TableHead>
-          <TableBody>
-            {customers.map(c=> { return ( <Customer key={c.id} id={c.id} name={c.name} image={c.image} birthday={c.birthday} gender={c.gender} job={c.job} /> ); } )}
+         
+          <TableBody>            
+             {customers.map(c=> { return ( <Customer key={c.id} id={c.id} name={c.name} image={c.image} birthday={c.birthday} gender={c.gender} job={c.job} /> ); } )}
           </TableBody>
 
         </Table>
@@ -75,4 +78,5 @@ class App extends Component {
   }
 }
 
+//export default App;
 export default withStyles(styles) (App);
